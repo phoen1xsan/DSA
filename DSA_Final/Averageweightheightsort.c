@@ -29,22 +29,29 @@ void bubblesort(struct Employee arr[], int n) {
 }
 
 int main() {
-    struct Employee employees[5] = {
-        {"Alice", 5.5, 60.0},
-        {"Bob", 6.0, 70.0},
-        {"Charlie", 5.8, 65.0},
-        {"Dave", 5.9, 75.0},
-        {"Emily", 5.7, 68.0}
-    };
+    int m;
+    printf("Enter number of employees: \n");
+    scanf("%d", &m);
+    struct Employee employees[m];
 
-    bubblesort(employees, 5);
+    printf("Enter details of employees:\n");
+    for (int i = 0; i < m; i++) {
+        printf("Employee %d:\n", i+1);
+        printf("Name: ");
+        scanf("%s", employees[i].name);
+        printf("Height: ");
+        scanf("%f", &employees[i].height);
+        printf("Weight: ");
+        scanf("%f", &employees[i].weight);
+    }
 
-    printf("List of employees sorted based on average of height and weight:\n");
-    for (int i = 0; i < 5; i++) {
+    bubblesort(employees, m);
+
+    printf("\nList of employees sorted based on average of height and weight:\n");
+    for (int i = 0; i < m; i++) {
         printf("%s, height: %.2f, weight: %.2f\n", employees[i].name, employees[i].height, employees[i].weight);
     }
 
     printf("Number of swaps is: %d\n",z);
-
     return 0;
 }
